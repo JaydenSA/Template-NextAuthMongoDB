@@ -1,15 +1,5 @@
+import { UserDocument } from "@/interfaces/User";
 import  mongoose, { Schema, model } from  "mongoose";
-
-export interface UserDocument {
-    _id: string;
-    email: string;
-    password: string;
-    name: string;
-    phone: string;
-    image: string;
-    createdAt: Date;
-    updatedAt: Date;
-  }
 
 const UserSchema = new Schema<UserDocument>({
     email: {
@@ -26,6 +16,14 @@ const UserSchema = new Schema<UserDocument>({
       required: true
     },
     name: {
+      type: String,
+      required: [true, "Name is required"]
+    },
+    surname: {
+      type: String,
+      required: [true, "Name is required"]
+    },
+    username: {
       type: String,
       required: [true, "Name is required"]
     }
