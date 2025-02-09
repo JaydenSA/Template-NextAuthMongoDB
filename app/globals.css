@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Restting Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat" sans-serif;
+  max-width: 2500px;
+}
+
+html {
+  margin-right: auto;
+  margin-left: auto;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -69,4 +82,55 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Text Styling */
+.custom-h1-extrabold {
+  @apply text-6xl md:text-7xl font-extrabold text-left w-[320px] md:w-[450px] lg:w-[580px] lg:h-[210px];
+}
+.custom-h1-bold {
+  @apply text-6xl md:text-7xl font-bold;
+}
+.custom-h3-bold {
+  @apply font-bold text-2xl mb-3;
+}
+.custom-p-medium {
+  @apply text-xl leading-7 font-medium ;
+}
+.custom-p-extrasmall {
+  @apply font-medium text-xs;
+}
+
+/* Landing Page Styling */
+.custom-landing-overview {
+  @apply relative flex flex-col lg:grid lg:grid-cols-2 gap-10 place-items-center bg-background min-h-screen p-4 pt-24 md:p-16 md:pt-20 lg:p-32 lg:px-40;
+}
+.custom-landing-paragraph {
+  @apply flex flex-col gap-5 md:gap-10 items-start relative;
+}
+.custom-landing-contact-input {
+  @apply rounded-full w-[180px] md:w-auto ml-4 focus:border-0 focus-within:border-0;
+}
+.custom-landing-contact-bar {
+  @apply flex gap-5 bg-white rounded-full w-auto; 
+}
+
+/* Info Bubble Styles */
+.custom-infobubble {
+  @apply relative shadow-2xl lg:max-w-screen-lg xl:max-w-screen-2xl lg:absolute mx-auto mt-12 bottom-0 lg:-bottom-20 bg-secondary rounded-3xl p-10 text-white flex flex-col lg:flex-row gap-10;
+}
+.custom-infobubble-icons-purple {
+  @apply bg-secondary rounded-2xl min-w-[100px] min-h-[100px] flex justify-center items-center;
+}
+.custom-infobubble-icons-gray {
+  @apply bg-gray-400/40 rounded-2xl min-w-[100px] min-h-[100px] flex justify-center items-center;
+}
+.custom-infobubble-icon-image {
+  @apply object-cover min-w-[50px] min-h-[50px];
+}
+.custom-infobubble-container {
+  @apply flex flex-col md:flex-row gap-5;
+}
+.custom-infobubble-info {
+  @apply lg:w-72 flex flex-col justify-center items-start;
 }

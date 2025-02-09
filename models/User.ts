@@ -21,11 +21,15 @@ const UserSchema = new Schema<UserDocument>({
     },
     surname: {
       type: String,
-      required: [true, "Name is required"]
+      required: [true, "Surname is required"]
     },
     username: {
       type: String,
-      required: [true, "Name is required"]
+      required: [true, "Username is required"]
+    },
+    image: {
+      type: String,
+      required: [true, "Image is required"]
     }
   },
   {

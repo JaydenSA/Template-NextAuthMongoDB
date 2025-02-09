@@ -54,10 +54,11 @@ export const update = async (values: UserDocument) => {
     }
 }
 
-export const getUsers = async (email: string) => {
+export const getUser = async (email: string) => {
     try {
         await connectDB();
         const user = await User.findOne({ email });
+        console.log(user);
               
         return user;
     } catch(e){

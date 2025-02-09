@@ -14,3 +14,10 @@ export interface UserInputs {
     name: string;
     surname: string;
 }
+
+export interface userProfile {
+    email: string;
+    name: string;
+    surname: string;
+    image: string;
+}
