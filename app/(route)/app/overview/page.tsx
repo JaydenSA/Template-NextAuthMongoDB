@@ -1,9 +1,10 @@
 
 
-export default async function Home() {
+export default function Home() {
+  
   return (
     <div className="flex flex-col gap-5 justify-center items-center h-full">
-      <p>Dashboard</p>
+      <p>Home Page</p>
     </div>
   );
 }

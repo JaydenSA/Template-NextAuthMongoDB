@@ -58,8 +58,6 @@ export const getUser = async (email: string) => {
     try {
         await connectDB();
         const user = await User.findOne({ email });
-        console.log(user);
-              
         return user;
     } catch(e){
         console.log(e);
