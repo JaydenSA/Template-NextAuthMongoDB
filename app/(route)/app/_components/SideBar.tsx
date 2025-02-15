@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 const items = [
   {
@@ -68,8 +68,8 @@ const footerItems = [
 ];
 
 export default function SideBar() {
-  const router = useRouter();
-  console.log(router)
+  let pathname = usePathname()
+  pathname = pathname.split("/")[2]
 
   return (
     <Sidebar
@@ -205,8 +205,8 @@ export default function SideBar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title} className={item.title == router.pathname ? "bg-primary text-white" : ""}>
-                  <SidebarMenuButton asChild>
+                <SidebarMenuItem key={item.title} >
+                  <SidebarMenuButton asChild className={item.title.toLowerCase() === pathname ? "bg-primary text-white rounded-md hover:bg-primary hover:!text-white" : ""}>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -223,7 +223,7 @@ export default function SideBar() {
           <SidebarMenu>
             {footerItems.map((item) => (
               <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
+                <SidebarMenuButton asChild className={item.title.toLowerCase() === pathname ? "bg-primary text-white rounded-md hover:bg-primary hover:!text-white" : ""}>
                   <a href={item.url}>
                     <item.icon />
                     <span>{item.title}</span>
