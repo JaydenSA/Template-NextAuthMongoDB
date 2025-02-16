@@ -34,7 +34,7 @@ export default async function ProfileButton() {
 
   return (
     <div>
-      {userDetails ? (
+      {session ? (
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
