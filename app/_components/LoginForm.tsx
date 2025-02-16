@@ -30,7 +30,7 @@ export function LoginForm(
       setError(res.error as string);
     }
     if (res?.ok) {
-      return router.push("/dashboard");
+      return router.push("/");
     }
   };
 

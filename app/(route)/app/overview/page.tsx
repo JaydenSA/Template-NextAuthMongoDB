@@ -1,5 +1,3 @@
-"use client"
-
 import { userProfile } from "@/interfaces/User";
 import { getUser } from "@/actions/user";
 
@@ -10,39 +8,40 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { useSession } from "next-auth/react";
 import React from "react";
+import { getSession } from "next-auth/react";
 
-export default function Home() {
-  const { data: session } = useSession()
-    
-  const userDetails = React.useRef<userProfile>({
-      email: "",
-      name: "",
-      surname: "",
-      image: "",
-    });
+export default async function Home() {
+  let userDetails : userProfile = {
+    email: "",
+    name: "",
+    surname: "",
+    image: "",
+  };
 
-  React.useEffect(() => {
-      const fetchUserDetails = async () => {
-          if (session?.user?.email) {
-              userDetails.current = await getUser(session.user.email as string);
-          }
-          console.log(userDetails.current);
-      };
-      fetchUserDetails();
-  }, [userDetails.current]);
+  const session = await getSession();
+
+  if (session && session.user && session.user.email) {
+    console.log("Pulling user details for ", session.user.email);
+
+    userDetails = await getUser(session.user.email);
+  }
+
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-4 gap-4">
-      <Card className="col-span-1 md:col-span-2">
+      { userDetails && (
+        <Card className="col-span-1 md:col-span-2">
         <CardHeader>
-          <CardTitle>Hi {userDetails.current.name} </CardTitle>
+          <CardTitle>Hi {userDetails.name} </CardTitle>
         </CardHeader>
         <CardContent>
           <p>Card Content</p>
         </CardContent>
+
       </Card>
+      )}
+
       <Card className="col-span-1 md:col-span-2">
         <CardHeader>
           <CardTitle>Card Title</CardTitle>
