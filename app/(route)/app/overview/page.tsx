@@ -9,24 +9,22 @@ import {
 } from "@/components/ui/card";
 
 import React from "react";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 
 export default async function Home() {
-  let userDetails : userProfile = {
+  const session = await getServerSession();
+  
+  let userDetails : userProfile = ({
     email: "",
     name: "",
     surname: "",
     image: "",
-  };
+  });
 
-  const session = await getSession();
-
-  if (session && session.user && session.user.email) {
-    console.log("Pulling user details for ", session.user.email);
-
+  if (session?.user?.email) {
     userDetails = await getUser(session.user.email);
+    console.log(session)
   }
-
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-4 gap-4">

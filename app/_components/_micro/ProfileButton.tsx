@@ -55,6 +55,9 @@ export default async function ProfileButton() {
               <Link href={"/subscription"}>Subscription</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
+              <Link href={"/app/overview"}>Dashboard</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
               <SignOutButton />
             </DropdownMenuItem>
           </DropdownMenuContent>
