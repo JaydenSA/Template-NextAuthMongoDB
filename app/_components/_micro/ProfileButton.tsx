@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -9,27 +11,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import { getUser } from "@/actions/user";
-import Link from "next/link";
-import SignOutButton from "./SignOutButton";
-import { userProfile } from "@/interfaces/User";
-import { getServerSession } from "next-auth";
 import { Button } from "@/components/ui/button";
+
+import { getUserProfile } from "@/actions/userProfile";
+import SignOutButton from "./SignOutButton";
+import { UserProfileDocument } from "@/interfaces/UserProfile";
 
 export default async function ProfileButton() {
   const session = await getServerSession();
 
-  let userDetails : userProfile = ({
-    email: "",
-    name: "",
-    surname: "",
+  let userProfile : UserProfileDocument = ({
+    user_email: "",
+    first_name: "",
+    last_name: "",
     image: "",
+    phone_number: "",
   });
 
-  if (session?.user?.email) {
-    userDetails = await getUser(session.user.email);
-    console.log(session)
+  if (session?.user?.email)  {
+    userProfile = await getUserProfile(session.user.email);
   }
 
   return (
@@ -38,10 +38,9 @@ export default async function ProfileButton() {
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
-              <AvatarImage src={userDetails.image} />
+              <AvatarImage src={userProfile.image} />
               <AvatarFallback>
-                {userDetails.name[0]}
-                {userDetails.surname[0]}
+                {userProfile.user_email}
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
@@ -65,7 +64,7 @@ export default async function ProfileButton() {
       ):
       <div className="flex gap-3">
           <Button>
-            <Link href={"/login"}>Get Started!</Link>
+            <Link href={"/auth/login"}>Get Started!</Link>
           </Button>
         </div>}
     </div>

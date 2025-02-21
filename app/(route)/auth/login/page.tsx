@@ -25,7 +25,7 @@ export default function LoginPage() {
       setError(res.error as string);
     }
     if (res?.ok) {
-      return router.push("/");
+      return router.push("/auth/new-user");
     }
   };
   return (
@@ -67,8 +67,8 @@ export default function LoginPage() {
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
                     <Link
-                      href="/forgot-password"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
+                      href="/auth/forgot-password"
+                      className="ml-auto /text-sm underline-offset-4 hover:underline"
                     >
                       Forgot your password?
                     </Link>
@@ -120,7 +120,7 @@ export default function LoginPage() {
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href="/register" className="underline underline-offset-4">
+                <Link href="/auth/register" className="underline underline-offset-4">
                   Sign up
                 </Link>
               </div>

@@ -18,6 +18,7 @@ import {
   Calendar,
   Inbox,
   Search,
+  Send,
   Settings,
   UserIcon,
   ViewIcon,
@@ -64,6 +65,11 @@ const footerItems = [
     title: "Settings",
     url: "/app/settings",
     icon: Settings,
+  },
+  {
+    title: "Feedback",
+    url: "#",
+    icon: Send,
   },
 ];
 
@@ -219,6 +225,7 @@ export default function SideBar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
+        <Separator />
         <SidebarContent>
           <SidebarMenu>
             {footerItems.map((item) => (
