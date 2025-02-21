@@ -18,13 +18,14 @@ export default async function page() {
   });
 
   if (session?.user?.email) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     userDetails = await getUserProfile(session.user.email);
     // getting user profile will check if it exists and if not will create the necessary profile. 
   }
   
   return (
     <div className='flex flex-col gap-6 items-center justify-center h-screen'>
-      <h1 className='text-2xl font-bold'>Welcome! {userDetails.user_email}</h1>
+      <h1 className='text-2xl font-bold'>Welcome! {session?.user?.email}</h1>
       <Button>
         <Link href={"/app/overview"}> Continue to Dashboard</Link>
       </Button>

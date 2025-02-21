@@ -45,7 +45,7 @@ export function ForgetPasswordForm({
           console.log("User is not yet registered")
       } else if (res.status === 200) {
           console.log("User is redirect to login page after success")
-          router.push("/login")
+          router.push("/auth/login")
       }
   } catch (e) {
       console.log(e)

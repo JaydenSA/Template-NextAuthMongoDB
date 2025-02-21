@@ -17,11 +17,13 @@ import { useRouter } from "next/navigation";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ResetPasswordForm({ params }: any) {
   console.log(params.token);
-  
-  const { status: sessionStatus } = useSession();
-  const [error, setError] = useState("")
-  const [buttonStatus, setButtonStatus] = useState("Reset Password");
   const router = useRouter();
+
+  const [error, setError] = useState("")
+  const [verified, setVerified] = useState("false");
+
+  const { status: sessionStatus } = useSession();
+  const [buttonStatus, setButtonStatus] = useState("Reset Password");
 
   const handleSubmit = async (formData: FormData) => {
     setButtonStatus("loading");
