@@ -1,24 +1,24 @@
 "use server"
 
-import { UserProfileDocument } from "@/database/interfaces/User";
+import { UserSettingsDocument } from "@/database/interfaces/User";
 import { connectDB } from "@/lib/mongodb";
-import UserProfile from "@/database/models/UserProfile";
+import UserSettings from "@/database/models/UserSettings";
 
-export const createUserProfile = async (values: UserProfileDocument) => {
+export const createUserSettings = async (values: UserSettingsDocument) => {
     const { user_email, first_name, last_name, phone_number } = values;
 
     try {
         await connectDB();
 
-        const userProfileFound = await UserProfile.findOne({ user_email });
+        const userSettingsFound = await UserSettings.findOne({ user_email });
 
-        if(userProfileFound){
+        if(userSettingsFound){
             return {
                 error: 'User Profile already exists.'
             }
         }
 
-        const user = new UserProfile({
+        const user = new UserSettings({
             user_email,
             first_name,
             last_name,
@@ -33,12 +33,12 @@ export const createUserProfile = async (values: UserProfileDocument) => {
     }
 }
 
-export const updateUserProfile = async (values: UserProfileDocument) => {
+export const updateUserSettings = async (values: UserSettingsDocument) => {
     const { user_email, first_name, last_name, phone_number } = values;
 
     try {
         await connectDB();
-        const userUpdate = await UserProfile.findOne({ user_email });
+        const userUpdate = await UserSettings.findOne({ user_email });
         
         userUpdate.user_email = user_email || userUpdate.user_email;
         userUpdate.first_name = first_name || userUpdate.first_name;
@@ -51,14 +51,14 @@ export const updateUserProfile = async (values: UserProfileDocument) => {
     }
 }
 
-export const getUserProfile = async (user_email: string) => {
+export const getUserSettings = async (user_email: string) => {
     try {
         await connectDB();
         
-        const userProfileFound = await UserProfile.findOne({ user_email });
+        const userSettingsFound = await UserSettings.findOne({ user_email });
 
-        if(userProfileFound === null){
-            const userCreated = await createUserProfile({
+        if(userSettingsFound === null){
+            const userCreated = await createUserSettings({
                 user_email: user_email,
                 first_name: "",
                 last_name: "",
@@ -69,7 +69,7 @@ export const getUserProfile = async (user_email: string) => {
             return userCreated;
         }
         
-        return userProfileFound;
+        return userSettingsFound;
     } catch(e){
         console.log(e);
     }

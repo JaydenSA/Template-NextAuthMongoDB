@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+SaaS Template
 
-## Getting Started
+A fully-featured SaaS boilerplate built with Next.js, NextAuth, MongoDB, and Hygraph CMS, designed to help you kickstart your SaaS project with authentication, user management, and content handling.
 
-First, run the development server:
+🚀 Features
 
-```bash
+Authentication: Secure user authentication using NextAuth.
+
+User Management: Store and manage user data in MongoDB.
+
+Shipping Details: Integrated shipping address management.
+
+CMS Integration: Content management via Hygraph CMS.
+
+Dark Mode Support: Built-in theme switcher.
+
+🛠️ Tech Stack
+
+Framework: Next.js (App Router)
+
+Authentication: NextAuth.js
+
+Database: MongoDB
+
+CMS: Hygraph
+
+Styling: Tailwind CSS
+
+Deployment: Vercel
+
+🔧 Installation & Setup
+
+Clone the Repository
+
+git clone https://github.com/your-repo/saas-template.git
+cd saas-template
+
+Install Dependencies
+
+npm install
+# or
+yarn install
+
+Set Up Environment Variables
+Rename .env.example to .env.local and update the following:
+
+NEXTAUTH_SECRET=your-secret
+MONGODB_URI=mongodb+srv://your-db-url
+HYGRAPH_ENDPOINT=https://your-hygraph-api-endpoint
+
+Run the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🚀 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Easily deploy to Vercel:
 
-## Learn More
+vercel
 
-To learn more about Next.js, take a look at the following resources:
+🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📜 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.

@@ -1,3 +1,12 @@
+export interface UserLoginDocument {
+    _id?: string;
+    email: string;
+    password: string;
+    role: string;
+    resetToken?: string;
+    resetTokenExpiry?: Date;
+}
+
 export interface UserProfileDocument {
     _id?: string;
     user_email: string;
@@ -17,4 +26,14 @@ export interface UserShippingDocument {
     postal_code: string;
     country: string;
     is_default: string;
+}
+
+export interface UserSettingsDocument {
+    _id?: string;
+    user_email: string;
+
+    email_notifications: boolean;
+    marketing_promotions: boolean;
+
+    
 }

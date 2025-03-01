@@ -1,6 +1,6 @@
 "use server"
 
-import { UserLoginDocument } from "@/database/interfaces/UserLogin";
+import { UserLoginDocument } from "@/database/interfaces/User";
 import { connectDB } from "@/lib/mongodb";
 import UserLogin from "@/database/models/UserLogin";
 
