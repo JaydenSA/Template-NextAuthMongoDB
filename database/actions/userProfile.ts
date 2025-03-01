@@ -1,8 +1,8 @@
 "use server"
 
-import { UserProfileDocument } from "@/interfaces/UserProfile";
+import { UserProfileDocument } from "@/database/interfaces/UserProfile";
 import { connectDB } from "@/lib/mongodb";
-import UserProfile from "@/models/UserProfile";
+import UserProfile from "@/database/models/UserProfile";
 
 export const createUserProfile = async (values: UserProfileDocument) => {
     const { user_email, first_name, last_name, phone_number } = values;

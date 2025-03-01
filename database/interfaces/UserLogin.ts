@@ -3,6 +3,6 @@ export interface UserLoginDocument {
     email: string;
     password: string;
     role: string;
-    resetToken: string;
-    resetTokenExpiry: Date;
+    resetToken?: string;
+    resetTokenExpiry?: Date;
 }

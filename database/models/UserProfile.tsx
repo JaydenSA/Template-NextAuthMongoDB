@@ -1,4 +1,4 @@
-import { UserProfileDocument } from "@/interfaces/UserProfile";
+import { UserProfileDocument } from "@/database/interfaces/UserProfile";
 import  mongoose, { Schema, model } from  "mongoose";
 
 const UserProfileSchema = new Schema<UserProfileDocument>({

@@ -47,9 +47,9 @@ export function ForgetPasswordForm({
           console.log("User is redirect to login page after success")
           router.push("/auth/login")
       }
-  } catch (e) {
-      console.log(e)
-  }
+    } catch (e) {
+        console.log(e)
+    }
 
     // Add your logic here
     setButtonStatus("Sent!");

@@ -1,4 +1,4 @@
-import UserLogin from "@/models/UserLogin";
+import UserLogin from "@/database/models/UserLogin";
 import { connectDB } from "@/lib/mongodb";
 
 import crypto from "crypto";

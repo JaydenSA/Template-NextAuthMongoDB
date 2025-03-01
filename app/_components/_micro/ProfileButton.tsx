@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
-import { getUserProfile } from "@/actions/userProfile";
+import { getUserProfile } from "@/database/actions/userProfile";
 import SignOutButton from "./SignOutButton";
-import { UserProfileDocument } from "@/interfaces/UserProfile";
+import { UserProfileDocument } from "@/database/interfaces/UserProfile";
 
 export default async function ProfileButton() {
   const session = await getServerSession();

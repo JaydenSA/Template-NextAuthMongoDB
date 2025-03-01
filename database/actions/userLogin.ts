@@ -1,8 +1,8 @@
 "use server"
 
-import { UserLoginDocument } from "@/interfaces/UserLogin";
+import { UserLoginDocument } from "@/database/interfaces/UserLogin";
 import { connectDB } from "@/lib/mongodb";
-import UserLogin from "@/models/UserLogin";
+import UserLogin from "@/database/models/UserLogin";
 
 import bcrypt from "bcryptjs";
 
