@@ -22,8 +22,8 @@ export const POST = async (request: NextRequest) => {
   try {
     await existingUser.save();
     return new NextResponse("User's password has been reset.", { status: 200 })
-  } catch ( error: any ) {
-    return new NextResponse(error, { status: 500 })
+  } catch {
+    return new NextResponse("An error has occured while running API", { status: 500 })
   }
   
 };
