@@ -23,7 +23,10 @@ export const createUserProfile = async (values: UserProfileDocument) => {
             first_name,
             last_name,
             phone_number,
-            image: "https://avatar.iran.liara.run/public"
+            image: "https://avatar.iran.liara.run/public",
+            email_notifications: false,
+            marketing_promotions: false,
+            language_section: "en"
         });
         
         await user.save();
@@ -34,7 +37,7 @@ export const createUserProfile = async (values: UserProfileDocument) => {
 }
 
 export const updateUserProfile = async (values: UserProfileDocument) => {
-    const { user_email, first_name, last_name, phone_number } = values;
+    const { user_email, first_name, last_name, phone_number, image, email_notifications, marketing_promotions, language_section } = values;
 
     try {
         await connectDB();
@@ -44,6 +47,10 @@ export const updateUserProfile = async (values: UserProfileDocument) => {
         userUpdate.first_name = first_name || userUpdate.first_name;
         userUpdate.last_name = last_name || userUpdate.last_name;
         userUpdate.phone_number = phone_number || userUpdate.phone_number;
+        userUpdate.image = image || userUpdate.image;
+        userUpdate.email_notifications = email_notifications || userUpdate.email_notifications;
+        userUpdate.marketing_promotions = marketing_promotions || userUpdate.marketing_promotions;
+        userUpdate.language_section = language_section || userUpdate.language_section;
         
         await userUpdate.save();
     } catch(e){
@@ -63,7 +70,10 @@ export const getUserProfile = async (user_email: string) => {
                 first_name: "",
                 last_name: "",
                 image: "https://avatar.iran.liara.run/public",
-                phone_number: ""
+                phone_number: "",
+                email_notifications: false,
+                marketing_promotions: false,
+                language_section: "en"
             })
 
             return userCreated;

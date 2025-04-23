@@ -63,7 +63,7 @@ const footerItems = [
   },
   {
     title: "Settings",
-    url: "/app/settings",
+    url: "/app/settings/profile",
     icon: Settings,
   },
   {
@@ -78,11 +78,7 @@ export default function SideBar() {
   pathname = pathname.split("/")[2]
 
   return (
-    <Sidebar
-      style={{
-        backgroundColor: "#ffffff",
-      }}
-    >
+    <Sidebar>
       <SidebarHeader>
         <Link href={"/app/overview"} className="flex justify-center items-center p-4">
           <svg
@@ -213,10 +209,10 @@ export default function SideBar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title} >
                   <SidebarMenuButton asChild className={item.title.toLowerCase() === pathname ? "bg-primary text-white rounded-md hover:bg-primary hover:!text-white" : ""}>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

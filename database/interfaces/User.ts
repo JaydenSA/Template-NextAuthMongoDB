@@ -14,6 +14,9 @@ export interface UserProfileDocument {
     last_name: string;
     image: string;
     phone_number: string;
+    email_notifications: boolean;
+    marketing_promotions: boolean;
+    language_section: string;
 }
 
 export interface UserShippingDocument {
@@ -26,14 +29,4 @@ export interface UserShippingDocument {
     postal_code: string;
     country: string;
     is_default: string;
-}
-
-export interface UserSettingsDocument {
-    _id?: string;
-    user_email: string;
-
-    email_notifications: boolean;
-    marketing_promotions: boolean;
-
-    
 }

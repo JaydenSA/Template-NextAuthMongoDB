@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
-import ProfileButton from "./_micro/ProfileButton";
+import ProfileButton from "./ProfileButton";
 
 const navLinks = [
   {
@@ -41,7 +40,7 @@ export default function Navbar() {
             Flowbite
           </span>
         </a>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex gap-3 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <ProfileButton />
         </div>
         <div

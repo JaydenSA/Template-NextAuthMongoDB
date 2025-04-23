@@ -27,7 +27,6 @@ export function ForgetPasswordForm({
     setButtonStatus("loading");
 
     const email = formData.get("email");
-    console.log(email);
 
     try {
       console.log("Getting into try")

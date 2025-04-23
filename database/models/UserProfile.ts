@@ -1,4 +1,4 @@
-import { UserProfileDocument } from "@/database/interfaces/UserProfile";
+import { UserProfileDocument } from "@/database/interfaces/User";
 import  mongoose, { Schema, model } from  "mongoose";
 
 const UserProfileSchema = new Schema<UserProfileDocument>({
@@ -18,6 +18,18 @@ const UserProfileSchema = new Schema<UserProfileDocument>({
     },
     phone_number: {
       type: String, 
+    },
+    email_notifications: {
+      type: Boolean,
+      default: false,
+    },
+    marketing_promotions: {
+      type: Boolean,
+      default: false,
+    },
+    language_section: {
+      type: String,
+      default: "en",
     },
   },
   {

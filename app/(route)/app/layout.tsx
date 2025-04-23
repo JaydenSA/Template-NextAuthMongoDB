@@ -4,7 +4,7 @@ import { SidebarProvider } from '@/components/ui/sidebar';
 import Navbar from './_components/Navbar';
 import SideBar from "./_components/SideBar";
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider
     style={{
@@ -12,7 +12,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
       "--sidebar-width-mobile": "15rem",
     } as React.CSSProperties}>
       <SideBar />
-      <div className='w-full p-2 md:p-4 bg-gray-200'>
+      <div className={`w-full p-2 md:p-4 bg-gray-100`}>
         <Navbar/>
         {children}
       </div>

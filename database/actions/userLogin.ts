@@ -6,7 +6,7 @@ import UserLogin from "@/database/models/UserLogin";
 
 import bcrypt from "bcryptjs";
 
-export const createUser = async (values: UserLoginDocument) => {
+export const createUserLogin = async (values: UserLoginDocument) => {
     const { email, password } = values;
 
     try {
@@ -32,7 +32,7 @@ export const createUser = async (values: UserLoginDocument) => {
     }
 }
 
-export const updateUser = async (values: UserLoginDocument) => {
+export const updateUserLogin = async (values: UserLoginDocument) => {
     const { email, password, resetToken, resetTokenExpiry } = values;
 
     try {

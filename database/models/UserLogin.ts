@@ -1,4 +1,4 @@
-import { UserLoginDocument } from "@/database/interfaces/UserLogin";
+import { UserLoginDocument } from "@/database/interfaces/User";
 import  mongoose, { Schema, model } from  "mongoose";
 
 const UserLoginSchema = new Schema<UserLoginDocument>({

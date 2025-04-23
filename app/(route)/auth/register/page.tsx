@@ -1,6 +1,6 @@
 "use client"
 
-import { createUser } from "@/database/actions/userLogin";
+import { createUserLogin } from "@/database/actions/userLogin";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,7 +16,7 @@ export default function RegisterPage() {
   const router = useRouter();
 
   const handleSubmit = async (formData: FormData) => {
-    const res = await createUser({
+    const res = await createUserLogin({
       email: formData.get("email") as string,
       password: formData.get("password") as string,
       role: "user",

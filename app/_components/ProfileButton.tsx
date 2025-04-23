@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 
@@ -15,7 +14,7 @@ import { Button } from "@/components/ui/button";
 
 import { getUserProfile } from "@/database/actions/userProfile";
 import SignOutButton from "./SignOutButton";
-import { UserProfileDocument } from "@/database/interfaces/UserProfile";
+import { UserProfileDocument } from "@/database/interfaces/User";
 
 export default async function ProfileButton() {
   const session = await getServerSession();
